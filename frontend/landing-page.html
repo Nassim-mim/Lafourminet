@@ -2,11 +2,19 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LAFOURMINET</title>
-    <link rel="icon" href="../image/TESTLogo.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="description" content="LAFOURMINET - Services professionnels de nettoyage, entretien d'espaces verts et rénovation depuis 2007 en Algérie">
+    <meta name="keywords" content="nettoyage, entretien, espaces verts, rénovation, Alger, Rouiba">
+    <meta name="author" content="LAFOURMINET">
+    
+
+
+    <title>LAFOURMINET</title> 
+    <link rel="icon" href="./image/TESTLogo.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"> 
+        <!-- Add these -->
+    
     <style>
         :root {
             --primary: #2E8B57;
@@ -1592,12 +1600,35 @@
         
         // Form submission
         const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Here you would typically send the form data to a server
-            alert('Merci pour votre message! Nous vous contacterons bientôt.');
-            contactForm.reset();
+            const formData = {
+                name: this.querySelector('input[type="text"]').value,
+                email: this.querySelector('input[type="email"]').value,
+                message: this.querySelector('textarea').value
+            };
+
+            try {
+                const response = await fetch('http://localhost:3000/api/send-email', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    alert('Message envoyé avec succès!');
+                    this.reset();
+                } else {
+                    throw new Error(data.error || 'Une erreur est survenue');
+                }
+            } catch (error) {
+                alert('Erreur lors de l\'envoi du message: ' + error.message);
+            }
         });
         
         // Animation on scroll
