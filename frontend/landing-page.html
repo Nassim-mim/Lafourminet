@@ -527,23 +527,23 @@
         
         /* Clients Section */
       
-            
- 
-
-  #clients-carousel {
+     #clients-carousel {
     position: relative;
-    width: 600px;
-    height: 600px;
+    width: 90vw; /* 90% de la largeur de l'écran */
+    max-width: 600px;
+    height: 90vw;
+    max-height: 600px;
     margin: 0 auto 60px;
     border-radius: 50%;
-
     overflow: visible;
   }
 
   .client-logo-item {
     position: absolute;
-    width: 80px;
-    height: 80px;
+    width: 12vw;
+    height: 12vw;
+    max-width: 80px;
+    max-height: 80px;
     transform: translate(-50%, -50%);
     transition: transform 0.3s ease;
     will-change: transform;
@@ -555,13 +555,14 @@
     object-fit: contain;
   }
 
-  /* Le centre : logo principal */
   .center-logo {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 150px;
-    height: 150px;
+    width: 25vw;
+    height: 25vw;
+    max-width: 150px;
+    max-height: 150px;
     transform: translate(-50%, -50%);
     z-index: 10;
   }
@@ -571,7 +572,18 @@
     height: 100%;
     object-fit: contain;
   }
-         
+
+  /* Petit ajustement pour très petits écrans */
+  @media (max-width: 400px) {
+    .client-logo-item {
+      width: 14vw;
+      height: 14vw;
+    }
+    .center-logo {
+      width: 30vw;
+      height: 30vw;
+    }
+  }
         /* Contact Section */
         .contact-section {
             background-color: var(--light);
