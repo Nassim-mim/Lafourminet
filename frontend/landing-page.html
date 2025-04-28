@@ -526,93 +526,52 @@
         }
         
         /* Clients Section */
-        .clients-section {
-            background-color: var(--primary);
-            color: white;
-            position: relative;
-            padding: 150px 0;
-            overflow: hidden;
-            margin-top: 50px;
-        }
-        
-        .clients-section .section-title {
-            margin-bottom: 120px;
-        }
-        
-        .clients-section .section-title h2 {
-            color: white;
-        }
-        
-        .clients-section .section-title h2:after {
-            background-color: var(--accent);
-        }
-        
-        .clients-container {
-            position: relative;
-            max-width: 1200px;
-            margin: 0 auto;
-            height: 500px;
-            padding-top: 50px;
-        }
-        
-        .client-logo-main {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 200px;
-            height: 200px;
-            background-color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            z-index: 2;
-        }
-        
-        .client-logo-main img {
-            width: 80%;
-            height: 80%;
-            object-fit: contain;
-        }
-        
-        .client-logos-carousel {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .client-logo-item {
-            position: absolute;
-            width: 120px;
-            height: 120px;
-            background-color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-        }
-        
-        .client-logo-item img {
-            width: 70%;
-            height: 70%;
-            object-fit: contain;
-            filter: grayscale(100%);
-            opacity: 0.8;
-            transition: var(--transition);
-        }
-        
-        .client-logo-item:hover img {
-            filter: grayscale(0%);
-            opacity: 1;
-            transform: scale(1.1);
-        }
-        
+      
+            
+ 
+
+  #clients-carousel {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    margin: 0 auto 60px;
+    border-radius: 50%;
+
+    overflow: visible;
+  }
+
+  .client-logo-item {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s ease;
+    will-change: transform;
+  }
+
+  .client-logo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /* Le centre : logo principal */
+  .center-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    height: 150px;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+  }
+
+  .center-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+         
         /* Contact Section */
         .contact-section {
             background-color: var(--light);
@@ -1112,7 +1071,7 @@
     <!-- Navigation -->
     <nav class="navbar">
         <a href="#" class="logo">
-            <img src="../image/TESTLogo.png" alt="LAFOURMINET Logo">
+            <img src="../frontend/image/TESTLogo.png" alt="LAFOURMINET Logo">
            
         </a>
         <div class="nav-links">
@@ -1142,12 +1101,12 @@
     <section id="about" class="section">
         <div class="section-title">
             <h2>Notre engagement</h2>
-            <p>15 ans d'expertise au service de votre satisfaction</p>
+            <p>18 ans d'expertise au service de votre satisfaction</p>
         </div>
         <div class="about-content">
             <div class="about-text">
                 <h3>Offrir des solutions personnalisées, efficaces et durables</h3>
-                <p>Forts de 15 ans d'expertise, nous offrons des services complets et personnalisés pour répondre à tous vos besoins, que vous soyez une entreprise ou une institution.</p>
+                <p>Forts de 18 ans d'expertise, nous offrons des services complets et personnalisés pour répondre à tous vos besoins, que vous soyez une entreprise ou une institution.</p>
                 <p>Notre équipe dévouée met tout en œuvre pour garantir votre satisfaction à travers des solutions innovantes et respectueuses de l'environnement.</p>
                 
                 <div class="guarantees">
@@ -1200,7 +1159,7 @@
                                 <li>Entretien de vitres et surfaces</li>
                                 <li>Nettoyage de piscines</li>
                             </ul>
-                            <a href="#contact" class="service-link">Demander un devis <i class="fas fa-arrow-right"></i></a>
+                            
                         </div>
                     </div>
                 </div>
@@ -1220,7 +1179,7 @@
                                 <li>Installation d'irrigation</li>
                                 <li>Solutions pour tous espaces</li>
                             </ul>
-                            <a href="#contact" class="service-link">Demander un devis <i class="fas fa-arrow-right"></i></a>
+                            
                         </div>
                     </div>
                 </div>
@@ -1240,7 +1199,7 @@
                                 <li>Solutions d'étanchéité</li>
                                 <li>Personnalisation</li>
                             </ul>
-                            <a href="#contact" class="service-link">Demander un devis <i class="fas fa-arrow-right"></i></a>
+                        
                         </div>
                     </div>
                 </div>
@@ -1249,7 +1208,7 @@
                 <div class="swiper-slide">
                     <div class="service-card">
                         <div class="service-img">
-                            <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Traitement des eaux">
+                            <img src="https://media.istockphoto.com/id/2066529132/fr/photo/deux-chercheurs-en-boissons-ont-utilis%C3%A9-des-r%C3%A9cipients-d%C3%A9chantillons-chimiques-de.webp?a=1&b=1&s=612x612&w=0&k=20&c=6OYbenTQKC03E3XQVKy-Z4SGiwMRZTrO466hXn7UktI=" alt="Traitement des eaux">
                         </div>
                         <div class="service-content">
                             <h3>Traitement des Eaux</h3>
@@ -1259,7 +1218,7 @@
                                 <li>Solutions d'assainissement</li>
                                 <li>Respect des réglementations</li>
                             </ul>
-                            <a href="#contact" class="service-link">Demander un devis <i class="fas fa-arrow-right"></i></a>
+                
                         </div>
                     </div>
                 </div>
@@ -1268,16 +1227,17 @@
                 <div class="swiper-slide">
                     <div class="service-card">
                         <div class="service-img">
-                            <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Collecte des déchets">
+                            <img src="https://www.orleans-metropole.fr/fileadmin/_processed_/2/8/csm_collecte002_2040d08532.jpg" alt="Collecte des déchets">
                         </div>
                         <div class="service-content">
                             <h3>Collecte des Déchets</h3>
                             <ul>
                                 <li>Service rapide et efficace</li>
                                 <li>Solutions adaptées</li>
+                                <li>Recyclage et valorisation</li>
                                 <li>Gestion écologique</li>
                             </ul>
-                            <a href="#contact" class="service-link">Demander un devis <i class="fas fa-arrow-right"></i></a>
+                    
                         </div>
                     </div>
                 </div>
@@ -1296,7 +1256,7 @@
                                 <li>Fournitures de quincaillerie</li>
                                 <li>Produits écoresponsables</li>
                             </ul>
-                            <a href="#contact" class="service-link">Demander un devis <i class="fas fa-arrow-right"></i></a>
+                        
                         </div>
                     </div>
                 </div>
@@ -1308,26 +1268,22 @@
     </section>
 
     <!-- Clients Section -->
-    <section id="clients" class="clients-section">
+     <section>
+    <div class="section-container">
         <div class="section-title">
             <h2>Ils nous font confiance</h2>
-            <p>Des institutions prestigieuses qui nous ont choisi</p>
+            <p >
+                Découvrez nos prestigieux clients qui nous ont fait confiance pour leurs projets.
+            </p>
         </div>
-        <br>
-        <br>
-        <br>
-        
-        <div class="clients-container">
-            <div class="client-logo-main">
-                <img src="image/TESTLogo.png" alt="Lafourminet">
-            </div>
-            
-            <div class="client-logos-carousel" id="clients-carousel">
-                <!-- Les logos clients seront générés dynamiquement par JavaScript -->
-            </div>
+        <div id="clients-carousel">
+          <div class="center-logo">
+            <img src="../frontend/image/logosis.png" alt="LaFourminet">
+          </div>
+          <div class="decorations"></div>
         </div>
+      </div>
     </section>
-
     <!-- Contact Section -->
     <section id="contact" class="section contact-section">
         <div class="section-title">
@@ -1476,7 +1432,7 @@
                 </div>
             </div>
         </div>
-        
+      
         <div class="footer-bottom">
             <p class="copyright">© 2025 Lafourminet. Tous droits réservés.</p>
         </div>
@@ -1553,69 +1509,57 @@
             }
         });
         
-        // Create rotating client logos
         const clientsCarousel = document.getElementById('clients-carousel');
-        
-        const clientLogos = [
-            'image/image-removebg-preview (1).png',
-            'image/image-removebg-preview (2).png',
-            'image/image-removebg-preview (3).png',
-            'image/image-removebg-preview (4).png',
-            'image/image-removebg-preview (5).png',
-            'image/image-removebg-preview (6).png',
-            'image/image-removebg-preview (7).png',
-            'image/image-removebg-preview (8).png',
-            'image/image-removebg-preview (9).png',
-            'image/cscec.png',
-            'image/zF.png',
-            'image/pasteur.png',
-            'image/unesku.png',
-            'image/mdn.png'
-        ];
-        
-        const radius = 250;
-        const centerX = clientsCarousel.offsetWidth / 2;
-        const centerY = clientsCarousel.offsetHeight / 2;
-        const angleStep = (2 * Math.PI) / clientLogos.length;
-        
-        clientLogos.forEach((client, index) => {
-            const angle = angleStep * index;
-            const x = centerX + radius * Math.cos(angle) - 60;
-            const y = centerY + radius * Math.sin(angle) - 60;
-            
-            const logoItem = document.createElement('div');
-            logoItem.className = 'client-logo-item';
-            logoItem.style.left = `${x}px`;
-            logoItem.style.top = `${y}px`;
-            logoItem.innerHTML = `<img src="${client}" alt="${client}">`;
-            
-            clientsCarousel.appendChild(logoItem);
-        });
-        
-        // Animate client logos
-        let rotationAngle = 0;
-        const logoItems = document.querySelectorAll('.client-logo-item');
-        
-        function rotateLogos() {
-            rotationAngle += 0.002;
-            
-            logoItems.forEach((item, index) => {
-                const angle = angleStep * index + rotationAngle;
-                const x = centerX + radius * Math.cos(angle) - 60;
-                const y = centerY + radius * Math.sin(angle) - 60;
-                
-                item.style.left = `${x}px`;
-                item.style.top = `${y}px`;
-                
-                // Add floating effect
-                const floatOffset = Math.sin(Date.now() / 1000 + index) * 5;
-                item.style.transform = `translateY(${floatOffset}px)`;
-            });
-            
-            requestAnimationFrame(rotateLogos);
-        }
-        
-        rotateLogos();
+
+const clientLogos = [
+  'image/image-removebg-preview (1).png',
+  'image/image-removebg-preview (2).png',
+  'image/image-removebg-preview (3).png',
+  'image/image-removebg-preview (4).png',
+  'image/image-removebg-preview (5).png',
+  'image/image-removebg-preview (6).png',
+  'image/image-removebg-preview (7).png',
+  'image/image-removebg-preview (8).png',
+  'image/image-removebg-preview (9).png',
+  'image/cscec.png',
+  'image/zF.png',
+  'image/pasteur.png',
+  'image/unesku.png',
+  'image/mdn.png'
+];
+
+const radius = 250; // Rayon du cercle
+const centerX = 300;
+const centerY = 300;
+const angleStep = (2 * Math.PI) / clientLogos.length;
+
+const logos = [];
+
+clientLogos.forEach((client, index) => {
+  const logoItem = document.createElement('div');
+  logoItem.className = 'client-logo-item';
+  logoItem.innerHTML = `<img src="${client}" alt="Client Logo">`;
+  clientsCarousel.appendChild(logoItem);
+  logos.push(logoItem);
+});
+
+let rotationAngle = 0;
+
+function rotateLogos() {
+  rotationAngle += 0.002; // Ajuste la vitesse ici
+  logos.forEach((item, index) => {
+    const angle = angleStep * index + rotationAngle;
+    const x = centerX + radius * Math.cos(angle);
+    const y = centerY + radius * Math.sin(angle);
+
+    item.style.left = `${x}px`;
+    item.style.top = `${y}px`;
+  });
+
+  requestAnimationFrame(rotateLogos);
+}
+
+rotateLogos();
         
         // Form submission
         const contactForm = document.getElementById('contactForm');
