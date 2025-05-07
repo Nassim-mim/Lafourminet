@@ -529,16 +529,16 @@
       
      #clients-carousel {
     position: relative;
-    width: 90vw; /* 90% de la largeur de l'écran */
+    width: 90vw;
     max-width: 600px;
     height: 90vw;
     max-height: 600px;
     margin: 0 auto 60px;
     border-radius: 50%;
     overflow: visible;
-  }
+}
 
-  .client-logo-item {
+.client-logo-item {
     position: absolute;
     width: 12vw;
     height: 12vw;
@@ -547,15 +547,15 @@
     transform: translate(-50%, -50%);
     transition: transform 0.3s ease;
     will-change: transform;
-  }
+}
 
-  .client-logo-item img {
+.client-logo-item img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-  }
+}
 
-  .center-logo {
+.center-logo {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -565,25 +565,53 @@
     max-height: 150px;
     transform: translate(-50%, -50%);
     z-index: 10;
-  }
+}
 
-  .center-logo img {
+.center-logo img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-  }
+}
 
-  /* Petit ajustement pour très petits écrans */
-  @media (max-width: 400px) {
+/* Responsive styles pour mobile */
+@media (max-width: 768px) {
+    #clients-carousel {
+        width: 100%;
+        max-width: none;
+        height: 150px;
+        border-radius: 0;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
     .client-logo-item {
-      width: 14vw;
-      height: 14vw;
+        position: relative;
+        display: inline-block;
+        width: 120px;
+        height: 120px;
+        max-width: none;
+        max-height: none;
+        margin: 0 15px;
+        transform: none;
+        vertical-align: middle;
     }
+
     .center-logo {
-      width: 30vw;
-      height: 30vw;
+        display: none;
     }
-  }
+}
+
+@media (max-width: 576px) {
+    #clients-carousel {
+        height: 120px;
+    }
+    
+    .client-logo-item {
+        width: 100px;
+        height: 100px;
+        margin: 0 10px;
+    }
+}
         /* Contact Section */
         .contact-section {
             background-color: var(--light);
@@ -1160,7 +1188,7 @@
                 <div class="swiper-slide">
                     <div class="service-card">
                         <div class="service-img">
-                            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Nettoyage">
+                            <img src="https://t4.ftcdn.net/jpg/12/13/24/61/240_F_1213246171_KgEPOWRSWVWkMIOqU3fbUkRlDbzKJwwS.jpg" alt="Nettoyage">
                         </div>
                         <div class="service-content">
                             <h3>Nettoyage & Désinfection</h3>
@@ -1180,16 +1208,17 @@
                 <div class="swiper-slide">
                     <div class="service-card">
                         <div class="service-img">
-                            <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Espaces Verts">
+                            <img src="https://t4.ftcdn.net/jpg/12/99/59/83/240_F_1299598306_on3Xun0WKnmN7YyTlLs4vARkUl7CewKZ.jpg" alt="Espaces Verts">
                         </div>
                         <div class="service-content">
                             <h3>Espaces Verts</h3>
                             <ul>
                                 <li>Création de jardins sur mesure</li>
-                                <li>Entretien complet</li>
                                 <li>Aménagement d'aires de jeu</li>
                                 <li>Installation d'irrigation</li>
                                 <li>Solutions pour tous espaces</li>
+                                <li>Création de maquettes sur mesure</li>
+                        
                             </ul>
                             
                         </div>
@@ -1258,7 +1287,7 @@
                 <div class="swiper-slide">
                     <div class="service-card">
                         <div class="service-img">
-                            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Commerce de détail">
+                            <img src="https://t3.ftcdn.net/jpg/12/70/09/86/240_F_1270098633_lEe4TeXCLm6G018MAWowQRQXaXc3dCn9.jpg" alt="Commerce de détail">
                         </div>
                         <div class="service-content">
                             <h3>Commerce de Détail</h3>
@@ -1526,6 +1555,7 @@
 const clientLogos = [
   'image/image-removebg-preview (1).png',
   'image/image-removebg-preview (2).png',
+  'image/LNCPP1.png',
   'image/image-removebg-preview (3).png',
   'image/image-removebg-preview (4).png',
   'image/image-removebg-preview (5).png',
@@ -1540,13 +1570,19 @@ const clientLogos = [
   'image/mdn.png'
 ];
 
-const radius = 250; // Rayon du cercle
+// Variables pour l'animation circulaire
+const radius = 250;
 const centerX = 300;
 const centerY = 300;
 const angleStep = (2 * Math.PI) / clientLogos.length;
-
 const logos = [];
 
+// Variables pour l'animation horizontale
+let scrollPosition = 0;
+let scrollSpeed = 1;
+let isMobile = window.innerWidth <= 768;
+
+// Créer les éléments de logo
 clientLogos.forEach((client, index) => {
   const logoItem = document.createElement('div');
   logoItem.className = 'client-logo-item';
@@ -1555,23 +1591,62 @@ clientLogos.forEach((client, index) => {
   logos.push(logoItem);
 });
 
-let rotationAngle = 0;
-
+// Fonction pour l'animation circulaire
 function rotateLogos() {
-  rotationAngle += 0.002; // Ajuste la vitesse ici
-  logos.forEach((item, index) => {
-    const angle = angleStep * index + rotationAngle;
-    const x = centerX + radius * Math.cos(angle);
-    const y = centerY + radius * Math.sin(angle);
-
-    item.style.left = `${x}px`;
-    item.style.top = `${y}px`;
-  });
-
+  if (!isMobile) {
+    rotationAngle += 0.002;
+    logos.forEach((item, index) => {
+      const angle = angleStep * index + rotationAngle;
+      const x = centerX + radius * Math.cos(angle);
+      const y = centerY + radius * Math.sin(angle);
+      item.style.left = `${x}px`;
+      item.style.top = `${y}px`;
+    });
+  }
   requestAnimationFrame(rotateLogos);
 }
 
+// Fonction pour l'animation horizontale
+function scrollLogos() {
+  if (isMobile) {
+    scrollPosition += scrollSpeed;
+    if (scrollPosition >= clientsCarousel.scrollWidth / 2) {
+      scrollPosition = 0;
+    }
+    clientsCarousel.scrollLeft = scrollPosition;
+  }
+  requestAnimationFrame(scrollLogos);
+}
+
+// Gérer le changement de taille d'écran
+window.addEventListener('resize', () => {
+  isMobile = window.innerWidth <= 768;
+  if (isMobile) {
+    // Réinitialiser les positions pour le mode mobile
+    logos.forEach(item => {
+      item.style.left = '';
+      item.style.top = '';
+    });
+  }
+});
+
+// Démarrer les animations
+let rotationAngle = 0;
 rotateLogos();
+scrollLogos();
+
+// Pause au survol (uniquement en mode mobile)
+clientsCarousel.addEventListener('mouseenter', () => {
+  if (isMobile) {
+    scrollSpeed = 0;
+  }
+});
+
+clientsCarousel.addEventListener('mouseleave', () => {
+  if (isMobile) {
+    scrollSpeed = 1;
+  }
+});
         
         // Form submission
         const contactForm = document.getElementById('contactForm');
