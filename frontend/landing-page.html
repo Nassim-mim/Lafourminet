@@ -1551,7 +1551,9 @@
             }
         });
         
-        const clientsCarousel = document.getElementById('clients-carousel');
+      const clientsCarousel = document.getElementById('clients-carousel');
+const centerLogo = document.querySelector('.center-logo');
+const decorations = document.querySelector('.decorations');
 
 const clientLogos = [
   'image/aslan-re.png',
@@ -1572,43 +1574,60 @@ const clientLogos = [
   'image/mdn.png'
 ];
 
-// Variables pour l'animation circulaire
+// Variables d'animation
 const radius = 250;
 const centerX = 300;
 const centerY = 300;
 const angleStep = (2 * Math.PI) / clientLogos.length;
 const logos = [];
-
-// Variables pour l'animation horizontale
 let scrollPosition = 0;
 let scrollSpeed = 1;
 let isMobile = window.innerWidth <= 768;
+let rotationAngle = 0;
 
-// Créer les éléments de logo
-clientLogos.forEach((client, index) => {
-  const logoItem = document.createElement('div');
-  logoItem.className = 'client-logo-item';
-  logoItem.innerHTML = `<img src="${client}" alt="Client Logo">`;
-  clientsCarousel.appendChild(logoItem);
-  logos.push(logoItem);
-});
+// Création des logos
+function setupLogos() {
+  // Supprimer seulement les logos clients (conserver le centre et décorations)
+  const existingLogos = document.querySelectorAll('.client-logo-item');
+  existingLogos.forEach(logo => logo.remove());
+  logos.length = 0;
 
-// Fonction pour l'animation circulaire
+  if (isMobile) {
+    // Mode mobile: double set de logos pour l'infini
+    for (let i = 0; i < clientLogos.length * 2; i++) {
+      const logoIndex = i % clientLogos.length;
+      const logoItem = document.createElement('div');
+      logoItem.className = 'client-logo-item';
+      logoItem.innerHTML = `<img src="${clientLogos[logoIndex]}" alt="Client Logo">`;
+      clientsCarousel.insertBefore(logoItem, decorations);
+    }
+  } else {
+    // Mode desktop: simple set pour le cercle
+    clientLogos.forEach((client, index) => {
+      const logoItem = document.createElement('div');
+      logoItem.className = 'client-logo-item';
+      logoItem.innerHTML = `<img src="${client}" alt="Client Logo">`;
+      clientsCarousel.insertBefore(logoItem, decorations);
+      logos.push(logoItem);
+    });
+  }
+}
+
+// Animation circulaire (desktop)
 function rotateLogos() {
-  if (!isMobile) {
+  if (!isMobile && logos.length > 0) {
     rotationAngle += 0.002;
     logos.forEach((item, index) => {
       const angle = angleStep * index + rotationAngle;
-      const x = centerX + radius * Math.cos(angle);
-      const y = centerY + radius * Math.sin(angle);
-      item.style.left = `${x}px`;
-      item.style.top = `${y}px`;
+      const x = centerX + radius * Math.cos(angle) - item.offsetWidth/2;
+      const y = centerY + radius * Math.sin(angle) - item.offsetHeight/2;
+      item.style.transform = `translate(${x}px, ${y}px)`;
     });
   }
   requestAnimationFrame(rotateLogos);
 }
 
-// Fonction pour l'animation horizontale
+// Défilement horizontal (mobile)
 function scrollLogos() {
   if (isMobile) {
     scrollPosition += scrollSpeed;
@@ -1620,35 +1639,33 @@ function scrollLogos() {
   requestAnimationFrame(scrollLogos);
 }
 
-// Gérer le changement de taille d'écran
-window.addEventListener('resize', () => {
+// Gestion du responsive
+function handleResize() {
+  const wasMobile = isMobile;
   isMobile = window.innerWidth <= 768;
-  if (isMobile) {
-    // Réinitialiser les positions pour le mode mobile
-    logos.forEach(item => {
-      item.style.left = '';
-      item.style.top = '';
-    });
+  
+  if (wasMobile !== isMobile) {
+    setupLogos();
+    if (isMobile) {
+      scrollPosition = 0;
+      clientsCarousel.scrollLeft = 0;
+    }
   }
+}
+
+// Événements
+window.addEventListener('resize', handleResize);
+clientsCarousel.addEventListener('mouseenter', () => {
+  if (isMobile) scrollSpeed = 0;
+});
+clientsCarousel.addEventListener('mouseleave', () => {
+  if (isMobile) scrollSpeed = 1;
 });
 
-// Démarrer les animations
-let rotationAngle = 0;
+// Initialisation
+setupLogos();
 rotateLogos();
 scrollLogos();
-
-// Pause au survol (uniquement en mode mobile)
-clientsCarousel.addEventListener('mouseenter', () => {
-  if (isMobile) {
-    scrollSpeed = 0;
-  }
-});
-
-clientsCarousel.addEventListener('mouseleave', () => {
-  if (isMobile) {
-    scrollSpeed = 1;
-  }
-});
         
         // Form submission
         const contactForm = document.getElementById('contactForm');
