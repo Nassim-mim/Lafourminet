@@ -4,315 +4,850 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rénovation & Peinture - LAFOURMINET</title>
+    <meta name="description" content="Services professionnels de rénovation et peinture pour particuliers et entreprises. Transformez vos espaces avec notre expertise.">
     <link rel="icon" href="../image/TESTLogo.png" type="image/png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2E8B57;
-            --primary-dark: #1E6B47;
-            --secondary: #3CB371;
-            --accent: #FFA500;
-            --accent-light: #FFB732;
-            --dark: #2F4F4F;
-            --light: #F5F5F5;
-            --lighter: #FFFFFF;
-            --transition: all 0.3s ease;
+            --primary: #005a2c;
+            --primary-light: #007A5E;
+            --secondary: #FF8C00;
+            --secondary-light: #FFA333;
+            --dark: #333333;
+            --gray: #666666;
+            --light-gray: #F0F0F0;
+            --off-white: #F9F9F9;
+            --white: #FFFFFF;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
-
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
         }
-
+        
         body {
-            background-color: var(--light);
+            background-color: var(--off-white);
             color: var(--dark);
-            line-height: 1.6;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)),
+            url('../image/carreleur-travaillant-sur-la-renovation-d-un-appartement.jpg') no-repeat center center/cover;
+       
+             height: 60vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            color: var(--white);
+            padding: 0 20px;
+            overflow: hidden;
+            text-align: center;
+            justify-content: center;
+            z-index: 1;
+        }
+        
+        .hero:hover {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+            url('../image/carreleur-travaillant-sur-la-renovation-d-un-appartement.jpg') no-repeat center center/cover;
+          }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, rgba(87, 86, 86, 0.4), transparent);
+            z-index: 1;
         }
 
-        /* Header */
-        .header {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                        url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-            height: 60vh;
+        .hero-content {
+            max-width: 800px;
+            color: var(--white);
+            padding: 0 20px;
+            z-index: 1;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+        
+        .hero-btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(255, 140, 0, 0.3);
+        }
+        
+        .hero-btn:hover {
+            background-color: var(--secondary-light);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(255, 140, 0, 0.4);
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: var(--white);
+        }
+        
+        .scroll-down i {
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background-color: var(--white);
+            
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            margin-top: -40px;
+            position: relative;
+            z-index: 1;
+
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+            font-weight: 600;
+
+        }
+        
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+
+        }
+        
+        .section-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--gray);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 40px;
+
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            background-color: var(--off-white);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s ease;
+        }
+        
+        .service-card:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(0, 90, 69, 0.1);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            color: var(--lighter);
+            margin: -35px auto 20px;
             position: relative;
+            z-index: 1;
+            border: 5px solid var(--white);
+            margin-top: 20px;
         }
-
-        .header-content {
-            max-width: 800px;
-            padding: 0 20px;
+        
+        .card-icon i {
+            font-size: 1.8rem;
+            color: var(--primary);
         }
-
-        .header h1 {
-            font-size: 3.5rem;
+        
+        .service-content {
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .service-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .service-content p {
+            color: var(--gray);
             margin-bottom: 20px;
-            animation: fadeInUp 1s ease;
         }
-
-        .header p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            animation: fadeInUp 1s ease 0.2s;
-            opacity: 0;
-            animation-fill-mode: forwards;
+        
+        .learn-more {
+            display: inline-block;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
         }
-
-        /* Main Content */
-        .main-content {
-            max-width: 1200px;
-            margin: -100px auto 0;
+        
+        .learn-more:hover {
+            color: var(--secondary);
+        }
+        
+        .learn-more i {
+            margin-left: 5px;
+            transition: var(--transition);
+        }
+        
+        .learn-more:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Process Section */
+        .process {
+            padding: 100px 0;
+            background-color: var(--off-white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .process::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://cdnjs.cloudflare.com/ajax/libs/simple-icons/3.0.1/simple-icons.svg') repeat;
+            opacity: 0.03;
+            z-index: 0;
+        }
+        
+        .process-steps {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+        }
+        
+        .process-line {
+            position: absolute;
+            top: 75px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: rgba(0, 90, 69, 0.2);
+            z-index: -1;
+        }
+        
+        .step {
+            flex: 1;
+            text-align: center;
+            position: relative;
             padding: 0 20px;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
             position: relative;
             z-index: 2;
+            box-shadow: 0 8px 15px rgba(0, 90, 69, 0.3);
         }
-
-        .service-overview {
-            background: var(--lighter);
-            border-radius: 15px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            margin-bottom: 50px;
+        
+        .step-content {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
         }
-
-        .service-overview h2 {
+        
+        .step:hover .step-content {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .step-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
             color: var(--primary);
-            font-size: 2rem;
+        }
+        
+        .step-content p {
+            color: var(--gray);
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 80px 0;
+            background: linear-gradient(120deg, var(--primary) 0%, #008B6E 100%);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 60%);
+            z-index: 0;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
             margin-bottom: 20px;
         }
-
-        .service-overview p {
-            margin-bottom: 20px;
+        
+        .cta p {
             font-size: 1.1rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
-
-        .features-grid {
+        
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--primary);
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cta-btn:hover {
+            background-color: var(--secondary);
+            color: var(--white);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+        
+        .testimonial-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin: 50px 0;
+            margin-top: 50px;
         }
-
-        .feature-card {
-            background: var(--lighter);
+        
+        .testimonial-card {
+            background-color: var(--off-white);
+            border-radius: 12px;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: var(--box-shadow);
             transition: var(--transition);
-            text-align: center;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .feature-card i {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-
-        .feature-card h3 {
-            color: var(--dark);
-            margin-bottom: 15px;
-        }
-
-        .process-section {
-            margin: 50px 0;
-            padding: 40px;
-            background: var(--lighter);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .process-section h2 {
-            color: var(--primary);
-            font-size: 2rem;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .process-step {
-            text-align: center;
-            padding: 20px;
             position: relative;
         }
-
-        .process-step:not(:last-child)::after {
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .quote-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            color: rgba(0, 90, 69, 0.1);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .author-img i {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+        
+        .author-info p {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 70px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--white);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3::after {
             content: '';
             position: absolute;
-            top: 50%;
-            right: -15px;
-            width: 30px;
+            bottom: 0;
+            left: 0;
+            width: 40px;
             height: 2px;
-            background: var(--primary);
+            background-color: var(--secondary);
         }
-
-        .process-step i {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 15px;
+        
+        .footer-links {
+            list-style: none;
         }
-
-        .process-step h3 {
-            color: var(--dark);
+        
+        .footer-links li {
             margin-bottom: 10px;
         }
-
-        .cta-section {
-            text-align: center;
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: var(--lighter);
-            margin-top: 50px;
-            border-radius: 15px;
-        }
-
-        .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .cta-section p {
-            max-width: 600px;
-            margin: 0 auto 30px;
-            font-size: 1.1rem;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 15px 40px;
-            background: var(--accent);
-            color: var(--dark);
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
             transition: var(--transition);
         }
-
-        .cta-button:hover {
-            background: var(--accent-light);
-            transform: translateY(-3px);
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
         }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        
+        .contact-item {
+            display: flex;
+            margin-bottom: 15px;
         }
-
+        
+        .contact-icon {
+            width: 30px;
+            color: var(--secondary);
+            margin-right: 10px;
+        }
+        
+        .social-icons {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            transition: var(--transition);
+        }
+        
+        .social-icon:hover {
+            background-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .social-icon i {
+            color: var(--white);
+            font-size: 1.2rem;
+        }
+        
+        .newsletter input {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+        
+        .newsletter button {
+            background-color: var(--secondary);
+            color: var(--white);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+        
+        .newsletter button:hover {
+            background-color: var(--secondary-light);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
         /* Responsive Design */
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.5rem;
-            }
-
-            .header p {
-                font-size: 1rem;
-            }
-
-            .main-content {
-                margin-top: -50px;
-            }
-
-            .service-overview {
-                padding: 20px;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
+        @media (max-width: 1100px) {
             .process-steps {
-                grid-template-columns: 1fr;
+                flex-direction: column;
+                gap: 40px;
             }
-
-            .process-step:not(:last-child)::after {
+            
+            .process-line {
                 display: none;
             }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 20px;
+            }
+            
+            .menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transition: var(--transition);
+            }
+            
+            .menu.active {
+                left: 0;
+            }
+            
+            .menu li {
+                margin: 10px 0;
+                text-align: center;
+            }
+            
+            .menu-button {
+                display: block;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cta h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--white);
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .btn-secondary i {
+            margin-left: 8px;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--primary);
+            transform: translateY(-3px);
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="header-content">
-            <h1>Rénovation & Peinture</h1>
-            <p>Transformez vos espaces avec notre expertise en rénovation et peinture</p>
-        </div>
-    </header>
 
-    <main class="main-content">
-        <section class="service-overview">
-            <h2>Notre Expertise en Rénovation</h2>
-            <p>Chez LAFOURMINET, nous transformons vos espaces avec passion et professionnalisme. Notre équipe d'experts en rénovation et peinture met son savoir-faire à votre service pour donner vie à vos projets.</p>
-            <p>De la simple rénovation à la transformation complète, nous vous accompagnons à chaque étape de votre projet.</p>
-        </section>
-
-        <div class="features-grid">
-            <div class="feature-card">
-                <i class="fas fa-layer-group"></i>
-                <h3>Pose de Revêtements</h3>
-                <p>Installation professionnelle de tous types de revêtements pour vos sols et murs.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-paint-roller"></i>
-                <h3>Peinture</h3>
-                <p>Services de peinture intérieure et extérieure avec des finitions impeccables.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-temperature-low"></i>
-                <h3>Isolation Thermique</h3>
-                <p>Solutions d'isolation pour améliorer le confort et l'efficacité énergétique.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-tint-slash"></i>
-                <h3>Étanchéité</h3>
-                <p>Traitements d'étanchéité pour protéger vos bâtiments contre les infiltrations.</p>
+    <!-- Hero Section -->
+    <section class="hero" id="accueil">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Rénovation & Peinture<br>Professionnelle</h1>
+                <p>Transformez vos espaces avec notre expertise en rénovation et peinture. Des solutions sur mesure pour donner vie à vos projets.</p>
+                <a href="../landing-page.html" class="btn-secondary">Nous contacter</a>
             </div>
         </div>
+        <div class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
 
-        <section class="process-section">
-            <h2>Notre Processus</h2>
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nos Services</h2>
+                <p>Chez LAFOURMINET, nous transformons vos espaces avec passion et professionnalisme. Notre équipe d'experts met son savoir-faire à votre service.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="card-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Pose de Revêtements</h3>
+                        <p>Installation professionnelle de tous types de revêtements pour vos sols et murs, avec des finitions impeccables.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="card-icon">
+                        <i class="fas fa-paint-roller"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Peinture</h3>
+                        <p>Services de peinture intérieure et extérieure réalisés par nos experts pour un résultat durable et élégant.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="card-icon">
+                        <i class="fas fa-temperature-low"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Isolation Thermique</h3>
+                        <p>Solutions d'isolation performantes pour améliorer le confort et l'efficacité énergétique de votre habitation.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="card-icon">
+                        <i class="fas fa-tint-slash"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Étanchéité</h3>
+                        <p>Traitements d'étanchéité professionnels pour protéger durablement vos bâtiments contre les infiltrations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="processus">
+        <div class="container">
+            <div class="section-header">
+                <h2>Notre Processus</h2>
+                <p>Une approche méthodique et professionnelle pour garantir le succès de chaque projet de rénovation.</p>
+            </div>
             <div class="process-steps">
-                <div class="process-step">
-                    <i class="fas fa-clipboard-check"></i>
-                    <h3>Évaluation</h3>
-                    <p>Analyse détaillée de vos besoins et de votre espace</p>
+                <div class="process-line"></div>
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Consultation</h3>
+                        <p>Nous écoutons attentivement vos besoins et vos idées pour comprendre parfaitement votre vision du projet.</p>
+                    </div>
                 </div>
-                <div class="process-step">
-                    <i class="fas fa-pencil-ruler"></i>
-                    <h3>Conception</h3>
-                    <p>Élaboration d'un plan personnalisé pour votre projet</p>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Évaluation</h3>
+                        <p>Analyse détaillée de votre espace et évaluation technique des travaux à réaliser.</p>
+                    </div>
                 </div>
-                <div class="process-step">
-                    <i class="fas fa-tools"></i>
-                    <h3>Réalisation</h3>
-                    <p>Exécution professionnelle des travaux</p>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Conception</h3>
+                        <p>Élaboration d'un plan personnalisé et d'un devis détaillé pour votre projet de rénovation.</p>
+                    </div>
                 </div>
-              
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Réalisation</h3>
+                        <p>Exécution professionnelle des travaux dans le respect des délais et des normes de qualité.</p>
+                    </div>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-      
-    </main>
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Prêt à transformer votre espace ?</h2>
+                <p>Contactez-nous dès aujourd'hui pour discuter de votre projet de rénovation et obtenir un devis personnalisé gratuit.</p>
+                <a href="#contact" class="cta-btn">Nous appeler</a>
+            </div>
+        </div>
+    </section>
 </body>
-</html> 
+</html>
