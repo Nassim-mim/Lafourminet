@@ -40,7 +40,7 @@
             line-height: 1.6;
             font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
-            font-size: 16px;
+            font-size: 14px;
         }
 
         h1, h2, h3, h4 {
@@ -51,7 +51,7 @@
         /* Header */
         .header {
             background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)),
-                url('../image/les-gens-desinfectent-ensemble-une-zone-dangereuse.jpg') no-repeat center center/cover;
+                url('https://media.istockphoto.com/id/1417833187/photo/professional-cleaner-vacuuming-a-carpet.jpg?s=612x612&w=0&k=20&c=5h8NBR190d46Ni4MclqJ7Zf9ZOtf3TM3gPRJaHUdMjk=') no-repeat center center/cover;
             height: 70vh;
             min-height: 500px;
             padding: 0 20px;
@@ -66,7 +66,35 @@
 
         .header:hover {
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                url('../image/les-gens-desinfectent-ensemble-une-zone-dangereuse.jpg') no-repeat center center/cover;
+                url('https://media.istockphoto.com/id/1417833187/photo/professional-cleaner-vacuuming-a-carpet.jpg?s=612x612&w=0&k=20&c=5h8NBR190d46Ni4MclqJ7Zf9ZOtf3TM3gPRJaHUdMjk=') no-repeat center center/cover;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid var(--white);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .back-button:hover {
+            background: var(--white);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .back-button i {
+            font-size: 1.1rem;
         }
 
         .header-content {
@@ -87,14 +115,14 @@
         }
 
         .header h1 {
-            font-size: clamp(2.3rem, 5vw, 4rem);
+            font-size: clamp(2rem, 4vw, 3.5rem);
             margin-bottom: 25px;
             animation: fadeInUp 1s ease;
             letter-spacing: 1px;
         }
 
         .header p {
-            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            font-size: clamp(1rem, 1.8vw, 1.2rem);
             margin-bottom: 40px;
             animation: fadeInUp 1s ease 0.2s;
             opacity: 0;
@@ -121,7 +149,7 @@
 
         .section-title h2 {
             color: var(--primary);
-            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-size: clamp(1.6rem, 2.8vw, 2.2rem);
             margin-bottom: 15px;
             position: relative;
             display: inline-block;
@@ -140,7 +168,7 @@
 
         .section-title p {
             color: var(--dark);
-            font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+            font-size: clamp(0.85rem, 1.3vw, 1rem);
             max-width: 700px;
             margin: 0 auto;
         }
@@ -196,13 +224,13 @@
 
         .service-overview h2 {
             color: var(--primary);
-            font-size: clamp(1.8rem, 3vw, 2.2rem);
+            font-size: clamp(1.6rem, 2.8vw, 2rem);
             margin-bottom: 25px;
         }
 
         .service-overview p {
             margin-bottom: 25px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--dark);
         }
 
@@ -319,25 +347,25 @@
         .feature-card h3 {
             color: var(--primary-dark);
             margin-bottom: 15px;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
         }
 
         @media (min-width: 768px) {
             .feature-card h3 {
-                font-size: 1.5rem;
+                font-size: 1.3rem;
                 margin-bottom: 20px;
             }
         }
 
         .feature-card p {
             color: var(--dark);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             line-height: 1.7;
         }
 
         @media (min-width: 768px) {
             .feature-card p {
-                font-size: 1rem;
+                font-size: 0.95rem;
             }
         }
 
@@ -424,24 +452,24 @@
         .process-card h3 {
             color: var(--primary-dark);
             margin-bottom: 12px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
         @media (min-width: 768px) {
             .process-card h3 {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
                 margin-bottom: 15px;
             }
         }
 
         .process-card p {
             color: var(--dark);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         @media (min-width: 768px) {
             .process-card p {
-                font-size: 0.95rem;
+                font-size: 0.9rem;
             }
         }
 
@@ -473,7 +501,7 @@
         }
 
         .cta-content h2 {
-            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-size: clamp(1.6rem, 2.8vw, 2.2rem);
             margin-bottom: 15px;
         }
 
@@ -484,7 +512,7 @@
         }
 
         .cta-content p {
-            font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+            font-size: clamp(0.85rem, 1.3vw, 1rem);
             margin-bottom: 30px;
             opacity: 0.9;
         }
@@ -516,7 +544,7 @@
             transition: var(--transition);
             display: inline-flex;
             align-items: center;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-align: center;
             justify-content: center;
         }
@@ -524,7 +552,7 @@
         @media (min-width: 768px) {
             .btn-white, .btn-secondary {
                 padding: 15px 40px;
-                font-size: 1rem;
+                font-size: 0.9rem;
             }
         }
 
@@ -871,17 +899,76 @@
                 padding: 0;
             }
         }
+
+        /* Carousel styles */
+        .carousel {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .carousel-inner {
+            position: relative;
+            width: 100%;
+            height: 400px;
+        }
+
+        .carousel-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .carousel-item.active {
+            opacity: 1;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 2;
+        }
+
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .carousel-indicator.active {
+            background: var(--white);
+        }
     </style>
 </head>
 <body>
     
 
     <header class="header">
+        <a href="javascript:history.back()" class="back-button">
+            <i class="fas fa-arrow-left"></i> Retour
+        </a>
         <div class="header-content">
             <h1>Nettoyage & Désinfection</h1>
             <p>Des solutions professionnelles pour un environnement sain et impeccable, adaptées à vos besoins spécifiques</p>
             <div class="buttons">
-                <a href="../landing-page.html" class="btn-secondary">Nous contacter</a>
+                <a href="../landing-page.html#contact" class="btn-secondary">Nous contacter</a>
             </div>
         </div>
     </header>
@@ -895,7 +982,24 @@
                     <p>Notre équipe qualifiée utilise des techniques et produits de pointe pour garantir des résultats impeccables tout en respectant l'environnement et en assurant votre sécurité.</p>
                 </div>
                 <div class="service-overview-img">
-                    <img src="../image/travailleur-de-la-sante-en-costume-de-matieres-dangereuses-desinfectant-un-cafe-terrasse-pendant-l-epidemie-de-covid19.jpg" alt="Agent de nettoyage professionnel désinfectant une terrasse de café">
+                    <div class="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="https://media.istockphoto.com/id/2164840262/photo/cheerful-young-housewife-holding-bucket-with-cleaning-supplies.jpg?s=612x612&w=0&k=20&c=rNQ3DSnBpoPJQkBgduHjqzhTNzr2h8zdgdCRgEqZ2rM=" alt="Équipe de nettoyage professionnelle">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://media.istockphoto.com/id/2161348842/photo/man-mopping-the-floor-in-the-hospital-room.jpg?s=612x612&w=0&k=20&c=iQcWJiHtuSMaUK17krimLqT-pmy76NCWaVssSLOs9Ko=" alt="Nettoyage de bureau">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://media.istockphoto.com/id/2190857608/photo/professional-housecleaners-in-a-home.jpg?s=612x612&w=0&k=20&c=mDTR9kkk8w4Xlo0Gzyh0CQxf7hjZ3DpJvreerRmhA8w=" alt="Service de désinfection">
+                            </div>
+                        </div>
+                        <div class="carousel-indicators">
+                            <span class="carousel-indicator active"></span>
+                            <span class="carousel-indicator"></span>
+                            <span class="carousel-indicator"></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -912,42 +1016,42 @@
                             <i class="fas fa-broom" aria-hidden="true"></i>
                         </div>
                         <h3>Nettoyage Quotidien</h3>
-                        <p>Service régulier de nettoyage pour maintenir vos espaces impeccables au quotidien. Nos équipes interviennent selon votre planning et s'adaptent à vos contraintes.</p>
+                        <p>Service régulier de nettoyage pour maintenir vos espaces impeccables au quotidien. Nos équipes interviennent selon votre planning et s'adaptent à vos contraintes horaires.</p>
                     </div>
                     <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
                         <div class="feature-icon">
                             <i class="fas fa-spray-can" aria-hidden="true"></i>
                         </div>
                         <h3>Désinfection</h3>
-                        <p>Utilisation de produits professionnels pour une désinfection efficace et sûre de vos locaux. Nous éliminons bactéries et virus pour un environnement sain.</p>
+                        <p>Désinfection haute performance pour la sécurité sanitaire de vos espaces. Nous utilisons des produits professionnels pour une désinfection complète et efficace.</p>
                     </div>
                     <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
                         <div class="feature-icon">
                             <i class="fas fa-window-maximize" aria-hidden="true"></i>
                         </div>
                         <h3>Entretien des Vitres</h3>
-                        <p>Nettoyage professionnel des vitres et surfaces vitrées pour une transparence parfaite, même en hauteur grâce à notre équipement spécialisé.</p>
+                        <p>Nettoyage professionnel des vitres intérieures et extérieures, murs rideaux et surfaces difficiles d'accès pour une transparence parfaite.</p>
                     </div>
                     <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
                         <div class="feature-icon">
-                            <i class="fas fa-couch" aria-hidden="true"></i>
+                            <i class="fas fa-otter" aria-hidden="true"></i>
                         </div>
-                        <h3>Nettoyage de Mobilier</h3>
-                        <p>Entretien et nettoyage en profondeur de vos meubles, canapés et fauteuils avec des techniques adaptées à chaque matériau pour préserver leur aspect.</p>
+                        <h3>Dératisation</h3>
+                        <p>Service professionnel de dératisation pour l'élimination efficace des rongeurs nuisibles dans vos espaces.</p>
                     </div>
                     <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
                         <div class="feature-icon">
-                            <i class="fas fa-building" aria-hidden="true"></i>
+                            <i class="fas fa-bug" aria-hidden="true"></i>
                         </div>
-                        <h3>Services pour Entreprises</h3>
-                        <p>Solutions sur mesure pour bureaux, commerces et industries avec des prestations adaptées à vos horaires et à la spécificité de votre secteur.</p>
+                        <h3>Désinsectisation</h3>
+                        <p>Lutte contre les insectes nuisibles avec des solutions adaptées et respectueuses de l'environnement.</p>
                     </div>
                     <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
                         <div class="feature-icon">
-                            <i class="fas fa-leaf" aria-hidden="true"></i>
+                            <i class="fas fa-swimming-pool" aria-hidden="true"></i>
                         </div>
-                        <h3>Nettoyage Écologique</h3>
-                        <p>Utilisation de produits écologiques et de méthodes respectueuses de l'environnement pour un nettoyage efficace et responsable.</p>
+                        <h3>Entretien Piscines</h3>
+                        <p>Service complet d'entretien et de nettoyage des piscines pour une eau cristalline et un espace de baignade impeccable.</p>
                     </div>
                 </div>
             </div>
@@ -962,18 +1066,18 @@
                 <div class="process-cards">
                     <div class="process-card" data-aos="fade-up" data-aos-delay="100">
                         <div class="process-number">1</div>
-                        <h3>Consultation</h3>
-                        <p>Nous évaluons vos besoins et contraintes spécifiques pour vous proposer une solution adaptée.</p>
+                        <h3>Évaluation</h3>
+                        <p>Nous analysons vos besoins spécifiques et vos contraintes pour vous proposer une solution adaptée.</p>
                     </div>
                     <div class="process-card" data-aos="fade-up" data-aos-delay="200">
                         <div class="process-number">2</div>
-                        <h3>Devis Détaillé</h3>
-                        <p>Nous établissons un devis transparent avec toutes les prestations et tarifs clairement définis.</p>
+                        <h3>Planification</h3>
+                        <p>Nous établissons un planning d'intervention qui respecte vos contraintes horaires et vos besoins.</p>
                     </div>
                     <div class="process-card" data-aos="fade-up" data-aos-delay="300">
                         <div class="process-number">3</div>
                         <h3>Intervention</h3>
-                        <p>Notre équipe qualifiée intervient selon le planning convenu avec professionnalisme et efficacité.</p>
+                        <p>Nos équipes qualifiées interviennent avec des techniques modernes pour un résultat irréprochable.</p>
                     </div>
                     <div class="process-card" data-aos="fade-up" data-aos-delay="400">
                         <div class="process-number">4</div>
@@ -985,13 +1089,13 @@
         </section>
     </main>
 
-    <section class="cta-section" id="contact">
+    <section class="cta-section">
         <div class="container">
             <div class="cta-content">
                 <h2>Prêt à transformer votre espace ?</h2>
-                <p>Contactez-nous dès aujourd'hui pour un devis personnalisé et découvrez comment nos services peuvent répondre à vos besoins spécifiques.</p>
+                <p>Parce qu'un environnement propre, sain et sécurisé est essentiel pour votre bien-être. Contactez-nous dès aujourd'hui pour un devis personnalisé.</p>
                 <div class="cta-buttons">
-                    <a href="tel:+1234567890" class="btn-secondary">Nous appeler <i class="fas fa-phone-alt" aria-hidden="true"></i></a>
+                    <a href="tel:0561632748" class="btn-secondary">Nous appeler <i class="fas fa-phone-alt" aria-hidden="true"></i></a>
                     <a href="mailto:contact@lafourminet.com" class="btn-white">Envoyer un email <i class="fas fa-envelope" aria-hidden="true"></i></a>
                 </div>
             </div>
@@ -1009,7 +1113,54 @@
                 easing: 'ease-in-out',
                 once: true,
                 disable: 'mobile'
-            });  
+            });
+
+            // Carousel functionality
+            const carousel = document.querySelector('.carousel');
+            const items = carousel.querySelectorAll('.carousel-item');
+            const indicators = carousel.querySelectorAll('.carousel-indicator');
+            let currentIndex = 0;
+            let interval;
+
+            function showSlide(index) {
+                // Remove active class from all items and indicators
+                items.forEach(item => item.classList.remove('active'));
+                indicators.forEach(indicator => indicator.classList.remove('active'));
+
+                // Add active class to current item and indicator
+                items[index].classList.add('active');
+                indicators[index].classList.add('active');
+            }
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % items.length;
+                showSlide(currentIndex);
+            }
+
+            function startCarousel() {
+                interval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+            }
+
+            function stopCarousel() {
+                clearInterval(interval);
+            }
+
+            // Add click event to indicators
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    currentIndex = index;
+                    showSlide(currentIndex);
+                    stopCarousel();
+                    startCarousel();
+                });
+            });
+
+            // Start the carousel
+            startCarousel();
+
+            // Pause carousel on hover
+            carousel.addEventListener('mouseenter', stopCarousel);
+            carousel.addEventListener('mouseleave', startCarousel);
         });
     </script>
 </body>
