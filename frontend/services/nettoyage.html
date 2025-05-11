@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nettoyage & Désinfection - LAFOURMINET</title>
+    <meta name="description" content="Services professionnels de nettoyage et désinfection pour entreprises et particuliers. Solutions sur mesure pour un environnement sain.">
+    <link rel="icon" href="../image/TESTLogo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #1E8449;
+            --primary-dark: #0F6657;
+            --primary-light: #88D498;
+            --secondary: #114B5F;
+            --accent: #F3A712;
+            --accent-light: #F6C54D;
+            --dark: #2F3E46;
+            --light: #F7F9F9;
+            --lighter: #FFFFFF;
+            --white: #FFFFFF;
+            --gray: #E0E0E0;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgba(136, 212, 152, 0.1);
+            color: var(--dark);
+            line-height: 1.6;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            font-size: 16px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)),
+                url('../image/les-gens-desinfectent-ensemble-une-zone-dangereuse.jpg') no-repeat center center/cover;
+            height: 70vh;
+            min-height: 500px;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .header:hover {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('../image/les-gens-desinfectent-ensemble-une-zone-dangereuse.jpg') no-repeat center center/cover;
+        }
+
+        .header-content {
+            max-width: 900px;
+            padding: 0 20px;
+            z-index: 2;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, rgba(189, 186, 186, 0.4), transparent);
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-size: clamp(2.3rem, 5vw, 4rem);
+            margin-bottom: 25px;
+            animation: fadeInUp 1s ease;
+            letter-spacing: 1px;
+        }
+
+        .header p {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease 0.2s;
+            opacity: 0;
+            animation-fill-mode: forwards;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1300px;
+            margin: -100px auto 100px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            color: var(--primary);
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 70px;
+            height: 3px;
+            background: var(--accent);
+            transform: translateX(-50%);
+        }
+
+        .section-title p {
+            color: var(--dark);
+            font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .service-overview {
+            background: var(--lighter);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin-bottom: 80px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            margin-top: 50px;
+        }
+
+        @media (min-width: 768px) {
+            .service-overview {
+                padding: 60px;
+            }
+        }
+
+        .service-overview-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .service-overview-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .service-overview-img {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-overview-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .service-overview-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .service-overview h2 {
+            color: var(--primary);
+            font-size: clamp(1.8rem, 3vw, 2.2rem);
+            margin-bottom: 25px;
+        }
+
+        .service-overview p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+
+        .features-section {
+            padding: 60px 0;
+            position: relative;
+            margin-top: 60px;
+            background: var(--lighter);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            z-index: 1;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .features-section {
+                padding: 80px 0;
+                margin-top: 80px;
+            }
+        }
+
+        .features-section1 {
+            padding: 60px 0;
+        }
+
+        @media (min-width: 768px) {
+            .features-section1 {
+                padding: 80px 0;
+            }
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 0;
+        }
+
+        @media (min-width: 768px) {
+            .features-grid {
+                gap: 40px;
+            }
+        }
+
+        .feature-card {
+            background: var(--lighter);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            height: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .feature-card {
+                padding: 40px 30px;
+            }
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 8px 25px rgba(26, 147, 111, 0.2);
+        }
+
+        @media (min-width: 768px) {
+            .feature-icon {
+                width: 80px;
+                height: 80px;
+                margin-bottom: 25px;
+            }
+        }
+
+        .feature-icon i {
+            font-size: 1.8rem;
+            color: var(--lighter);
+        }
+
+        @media (min-width: 768px) {
+            .feature-icon i {
+                font-size: 2rem;
+            }
+        }
+
+        .feature-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        @media (min-width: 768px) {
+            .feature-card h3 {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+        }
+
+        .feature-card p {
+            color: var(--dark);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        @media (min-width: 768px) {
+            .feature-card p {
+                font-size: 1rem;
+            }
+        }
+
+        .process-section {
+            padding: 60px 0;
+            background-color: rgba(136, 212, 152, 0.1);
+            margin: 60px 0;
+            border-radius: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .process-section {
+                padding: 80px 0;
+                margin: 80px 0;
+            }
+        }
+
+        .process-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .process-cards {
+                margin-top: 60px;
+                justify-content: space-between;
+            }
+        }
+
+        .process-card {
+            flex: 1 1 200px;
+            min-width: 200px;
+            max-width: 280px;
+            text-align: center;
+            padding: 0 15px;
+            position: relative;
+        }
+
+        @media (min-width: 768px) {
+            .process-card {
+                min-width: 250px;
+                padding: 0 20px;
+            }
+            
+            .process-card:not(:last-child)::after {
+                content: '';
+                position: absolute;
+                top: 70px;
+                right: -15px;
+                width: 30px;
+                height: 10px;
+                background-color: var(--primary-light);
+                z-index: -1;
+            }
+        }
+
+        .process-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            color: var(--lighter);
+            font-weight: 700;
+            font-size: 1.3rem;
+            box-shadow: 0 8px 25px rgba(26, 147, 111, 0.3);
+        }
+
+        @media (min-width: 768px) {
+            .process-number {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+        }
+
+        .process-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
+
+        @media (min-width: 768px) {
+            .process-card h3 {
+                font-size: 1.3rem;
+                margin-bottom: 15px;
+            }
+        }
+
+        .process-card p {
+            color: var(--dark);
+            font-size: 0.9rem;
+        }
+
+        @media (min-width: 768px) {
+            .process-card p {
+                font-size: 0.95rem;
+            }
+        }
+
+        .cta-section {
+            padding: 60px 20px;
+            position: relative;
+            margin-top: 60px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            background: var(--primary);
+            color: var(--lighter);
+            display: block;
+            height: 100%;
+            overflow: hidden;
+            width: 100%;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .cta-section {
+                padding: 80px 0;
+                margin-top: 80px;
+            }
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .cta-content h2 {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            margin-bottom: 15px;
+        }
+
+        @media (min-width: 768px) {
+            .cta-content h2 {
+                margin-bottom: 20px;
+            }
+        }
+
+        .cta-content p {
+            font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        @media (min-width: 768px) {
+            .cta-content p {
+                margin-bottom: 40px;
+            }
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        @media (min-width: 768px) {
+            .cta-buttons {
+                gap: 20px;
+            }
+        }
+
+        .btn-white, .btn-secondary {
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.9rem;
+            text-align: center;
+            justify-content: center;
+        }
+
+        @media (min-width: 768px) {
+            .btn-white, .btn-secondary {
+                padding: 15px 40px;
+                font-size: 1rem;
+            }
+        }
+
+        .btn-white {
+            background-color: var(--white);
+            color: var(--primary);
+        }
+
+        .btn-white:hover {
+            background-color: var(--light);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .btn-white i, .btn-secondary i {
+            margin-left: 8px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 60px 20px 30px;
+        }
+
+        @media (min-width: 768px) {
+            .footer {
+                padding: 80px 50px 40px;
+            }
+        }
+
+        .footer-content {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                gap: 50px;
+            }
+        }
+
+        .footer-column h3 {
+            color: var(--lighter);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-column h3 {
+                font-size: 1.3rem;
+                margin-bottom: 25px;
+                padding-bottom: 15px;
+            }
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .footer-about p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-about p {
+                font-size: 0.95rem;
+                margin-bottom: 25px;
+            }
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        @media (min-width: 768px) {
+            .social-links {
+                gap: 15px;
+            }
+        }
+
+        .social-links a {
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: var(--lighter);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        @media (min-width: 768px) {
+            .social-links a {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-links li {
+            list-style: none;
+            margin-bottom: 10px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-links li {
+                margin-bottom: 12px;
+            }
+        }
+
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: var(--transition);
+            opacity: 0.8;
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-links a {
+                font-size: 0.95rem;
+            }
+        }
+
+        .footer-links a i {
+            margin-right: 8px;
+            font-size: 0.7rem;
+            color: var(--primary-light);
+        }
+
+        @media (min-width: 768px) {
+            .footer-links a i {
+                margin-right: 10px;
+                font-size: 0.8rem;
+            }
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-light);
+            opacity: 1;
+            padding-left: 5px;
+        }
+
+        .footer-contact li {
+            list-style: none;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        @media (min-width: 768px) {
+            .footer-contact li {
+                margin-bottom: 20px;
+            }
+        }
+
+        .footer-contact li i {
+            margin-right: 12px;
+            color: var(--primary-light);
+            font-size: 1rem;
+            margin-top: 3px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-contact li i {
+                margin-right: 15px;
+                font-size: 1.1rem;
+            }
+        }
+
+        .footer-contact li span {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-contact li span {
+                font-size: 0.95rem;
+            }
+        }
+
+        .footer-bottom {
+            max-width: 1300px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            opacity: 0.7;
+            font-size: 0.85rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-bottom {
+                margin: 50px auto 0;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Newsletter Form */
+        .newsletter-form {
+            display: flex;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 25px 0 0 25px;
+            font-size: 0.85rem;
+            outline: none;
+        }
+
+        @media (min-width: 768px) {
+            .newsletter-form input {
+                padding: 12px 15px;
+                font-size: 0.9rem;
+            }
+        }
+
+        .newsletter-form button {
+            padding: 0 15px;
+            background: var(--primary);
+            color: var(--lighter);
+            border: none;
+            border-radius: 0 25px 25px 0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        @media (min-width: 768px) {
+            .newsletter-form button {
+                padding: 0 20px;
+            }
+        }
+
+        .newsletter-form button:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .animate-pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Accessibility improvements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* Focus styles for accessibility */
+        a:focus, button:focus, input:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        /* Print styles */
+        @media print {
+            .header, .footer, .cta-section {
+                display: none;
+            }
+            body {
+                background: white;
+                color: black;
+                font-size: 12pt;
+            }
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+
+    <header class="header">
+        <div class="header-content">
+            <h1>Nettoyage & Désinfection</h1>
+            <p>Des solutions professionnelles pour un environnement sain et impeccable, adaptées à vos besoins spécifiques</p>
+            <div class="buttons">
+                <a href="../landing-page.html" class="btn-secondary">Nous contacter</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content" class="main-content">
+        <section class="service-overview" data-aos="fade-up">
+            <div class="service-overview-content">
+                <div class="service-overview-text">
+                    <h2>Notre Expertise en Nettoyage</h2>
+                    <p>Chez LAFOURMINET, nous comprenons l'importance d'un environnement propre et sain. Notre service de nettoyage et désinfection est conçu pour répondre aux besoins spécifiques de chaque client, qu'il s'agisse d'un bureau, d'une usine ou d'un espace public.</p>
+                    <p>Notre équipe qualifiée utilise des techniques et produits de pointe pour garantir des résultats impeccables tout en respectant l'environnement et en assurant votre sécurité.</p>
+                </div>
+                <div class="service-overview-img">
+                    <img src="../image/travailleur-de-la-sante-en-costume-de-matieres-dangereuses-desinfectant-un-cafe-terrasse-pendant-l-epidemie-de-covid19.jpg" alt="Agent de nettoyage professionnel désinfectant une terrasse de café">
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section1">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Nos Services</h2>
+                    <p>Découvrez notre gamme complète de services de nettoyage et désinfection adaptés à vos besoins</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="feature-icon">
+                            <i class="fas fa-broom" aria-hidden="true"></i>
+                        </div>
+                        <h3>Nettoyage Quotidien</h3>
+                        <p>Service régulier de nettoyage pour maintenir vos espaces impeccables au quotidien. Nos équipes interviennent selon votre planning et s'adaptent à vos contraintes.</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="feature-icon">
+                            <i class="fas fa-spray-can" aria-hidden="true"></i>
+                        </div>
+                        <h3>Désinfection</h3>
+                        <p>Utilisation de produits professionnels pour une désinfection efficace et sûre de vos locaux. Nous éliminons bactéries et virus pour un environnement sain.</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="feature-icon">
+                            <i class="fas fa-window-maximize" aria-hidden="true"></i>
+                        </div>
+                        <h3>Entretien des Vitres</h3>
+                        <p>Nettoyage professionnel des vitres et surfaces vitrées pour une transparence parfaite, même en hauteur grâce à notre équipement spécialisé.</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="feature-icon">
+                            <i class="fas fa-couch" aria-hidden="true"></i>
+                        </div>
+                        <h3>Nettoyage de Mobilier</h3>
+                        <p>Entretien et nettoyage en profondeur de vos meubles, canapés et fauteuils avec des techniques adaptées à chaque matériau pour préserver leur aspect.</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="feature-icon">
+                            <i class="fas fa-building" aria-hidden="true"></i>
+                        </div>
+                        <h3>Services pour Entreprises</h3>
+                        <p>Solutions sur mesure pour bureaux, commerces et industries avec des prestations adaptées à vos horaires et à la spécificité de votre secteur.</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+                        <div class="feature-icon">
+                            <i class="fas fa-leaf" aria-hidden="true"></i>
+                        </div>
+                        <h3>Nettoyage Écologique</h3>
+                        <p>Utilisation de produits écologiques et de méthodes respectueuses de l'environnement pour un nettoyage efficace et responsable.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Notre Méthode</h2>
+                    <p>Un processus simple et efficace pour répondre à tous vos besoins en matière de nettoyage</p>
+                </div>
+                <div class="process-cards">
+                    <div class="process-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="process-number">1</div>
+                        <h3>Consultation</h3>
+                        <p>Nous évaluons vos besoins et contraintes spécifiques pour vous proposer une solution adaptée.</p>
+                    </div>
+                    <div class="process-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="process-number">2</div>
+                        <h3>Devis Détaillé</h3>
+                        <p>Nous établissons un devis transparent avec toutes les prestations et tarifs clairement définis.</p>
+                    </div>
+                    <div class="process-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="process-number">3</div>
+                        <h3>Intervention</h3>
+                        <p>Notre équipe qualifiée intervient selon le planning convenu avec professionnalisme et efficacité.</p>
+                    </div>
+                    <div class="process-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="process-number">4</div>
+                        <h3>Suivi Qualité</h3>
+                        <p>Nous assurons un suivi régulier pour garantir votre satisfaction et ajuster nos services si nécessaire.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Prêt à transformer votre espace ?</h2>
+                <p>Contactez-nous dès aujourd'hui pour un devis personnalisé et découvrez comment nos services peuvent répondre à vos besoins spécifiques.</p>
+                <div class="cta-buttons">
+                    <a href="tel:+1234567890" class="btn-secondary">Nous appeler <i class="fas fa-phone-alt" aria-hidden="true"></i></a>
+                    <a href="mailto:contact@lafourminet.com" class="btn-white">Envoyer un email <i class="fas fa-envelope" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS animation library
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true,
+                disable: 'mobile'
+            });  
+        });
+    </script>
+</body>
+</html>
