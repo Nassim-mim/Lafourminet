@@ -81,15 +81,19 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+            /* background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%); */
+            
+             /* background-color: white; */
             z-index: 1000;
             transition: var(--transition-fast);
         }
         
         .navbar.scrolled {
             background: rgba(46, 139, 87, 0.95);
+            /* background-color: white; */
             padding: 15px 5%;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            /* box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); */ 
+           
         }
         
         .logo {
@@ -117,7 +121,8 @@
             font-weight: 500;
             position: relative;
             transition: var(--transition-fast);
-            padding: 5px 0;
+            padding: 5px 0; 
+            
         }
         
         .nav-links a:after {
@@ -140,7 +145,7 @@
         }
         
         .navbar.scrolled .nav-links a {
-            color: var(--lighter);
+            color: var (--lighter);
         }
         
         .navbar.scrolled .nav-links a:hover {
@@ -739,7 +744,7 @@
             display: block;
             margin-bottom: 10px;
             font-weight: 500;
-            color: var(--dark);
+            color: var (--dark);
         }
         
         .form-control {
@@ -1104,7 +1109,68 @@
                 width: 60px;
                 height: 60px;
             }
+        } 
+        .our_clients {
+        padding: 40px 20px;
+        text-align: center;
+        background: #f9f9f9;
+    }
+    
+    .our_clients h2 {
+        margin-bottom: 30px;
+        font-size: 2rem;
+        color: #333;
+    }
+    
+    .clients-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .client-card {
+        width: 150px;
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .client-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .client-logo {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .client-card {
+            width: 120px;
+            height: 120px;
         }
+    }
+    
+    @media (max-width: 480px) {
+        .client-card {
+            width: 100px;
+            height: 100px;
+        }
+    }
+    
+
     </style>
 </head>
 <body>
@@ -1308,23 +1374,83 @@
         </div>
     </section>
 
-    <!-- Clients Section -->
-     <section>
-    <div class="section-container">
+
+    <section class="our_clients"> 
         <div class="section-title">
-            <h2>Ils nous font confiance</h2>
+            <h2 style="color:#1E6B47">Ils nous font confiance</h2>
             <p >
                 Découvrez nos prestigieux clients qui nous ont fait confiance pour leurs projets.
             </p>
         </div>
-        <div id="clients-carousel">
-          <div class="center-logo">
-            <img src="image/logosis.png" alt="LaFourminet">
-          </div>
-          <div class="decorations"></div>
+         
+        <div class="clients-container">
+            <!-- Client Logo Cards - repeat this div for each client -->
+            <div class="client-card">
+                <img src="image/aslan-re.png" alt="Client 1" class="client-logo">
+            </div>
+            <!-- <div class="client-card">
+                <img src="image/BP__1_-removebg-preview.png" alt="Client 2" class="client-logo">
+            </div> -->
+            <div class="client-card">
+                <img src="image/bp-re.png" alt="Client 3" class="client-logo">
+            </div>
+            <div class="client-card">
+                <img src="image/cscec.png" alt="Client 4" class="client-logo">
+            </div>
+            <div class="client-card">
+                <img src="image/LNCPP1.png" alt="Client 5" class="client-logo">
+            </div>
+            <div class="client-card">
+                <img src="image/mdn.png" alt="Client 6" class="client-logo">
+            </div>
+            <div class="client-card">
+                <img src="image/osco-r.png" alt="Client 7" class="client-logo">
+            </div>
+            <div class="client-card">
+                <img src="image/pasteur.png" alt="Client 8" class="client-logo">
+            </div>
+            <div class="client-card">
+                <img src="image/unesku.png" alt="Client 9" class="client-logo">
+            </div>
+            <div class="client-card">
+                <img src="image/zF.png" alt="Client 10" class="client-logo">
+            </div> 
+            <div class="client-card">
+                <img src="image/image-removebg-preview (9).png" alt="Client 11" class="client-logo">
+            
+            
+            </div>
+            <div class="client-card">
+                <img src="image/image-removebg-preview (7).png" alt="Client 12" class="client-logo">
+            </div> 
+            <div class="client-card">
+                <img src="image/image-removebg-preview (6).png" alt="Client 12" class="client-logo">
+            </div>
+
+            <div class="client-card">
+                <img src="image/image-removebg-preview (3).png" alt="Client 12" class="client-logo">
+            </div>
+            <div class="client-card">
+                <img src="image/image-removebg-preview (4).png" alt="Client 13" class="client-logo">
+            </div> 
+            <div class="client-card">
+                <img src="image/image-removebg-preview (5).png" alt="Client 14" class="client-logo">
+            </div>
+             
+            <div class="client-card">
+                <img src="image/image-removebg-preview (2).png" alt="Client 14" class="client-logo">
+            </div>
+
+            
         </div>
-      </div>
     </section>
+      
+
+
+
+
+
+
     <!-- Contact Section -->
     <section id="contact" class="section contact-section">
         <div class="section-title">
@@ -1583,74 +1709,7 @@ let scrollPosition = 0;
 let scrollSpeed = 1;
 let isMobile = window.innerWidth <= 768;
 let rotationAngle = 0;
-
-// Création des logos
-function setupLogos() {
-  // Supprimer seulement les logos clients (conserver le centre et décorations)
-  const existingLogos = document.querySelectorAll('.client-logo-item');
-  existingLogos.forEach(logo => logo.remove());
-  logos.length = 0;
-
-  if (isMobile) {
-    // Mode mobile: double set de logos pour l'infini
-    for (let i = 0; i < clientLogos.length * 2; i++) {
-      const logoIndex = i % clientLogos.length;
-      const logoItem = document.createElement('div');
-      logoItem.className = 'client-logo-item';
-      logoItem.innerHTML = `<img src="${clientLogos[logoIndex]}" alt="Client Logo">`;
-      clientsCarousel.insertBefore(logoItem, decorations);
-    }
-  } else {
-    // Mode desktop: simple set pour le cercle
-    clientLogos.forEach((client, index) => {
-      const logoItem = document.createElement('div');
-      logoItem.className = 'client-logo-item';
-      logoItem.innerHTML = `<img src="${client}" alt="Client Logo">`;
-      clientsCarousel.insertBefore(logoItem, decorations);
-      logos.push(logoItem);
-    });
-  }
-}
-
-// Animation circulaire (desktop)
-function rotateLogos() {
-  if (!isMobile && logos.length > 0) {
-    rotationAngle += 0.002;
-    logos.forEach((item, index) => {
-      const angle = angleStep * index + rotationAngle;
-      const x = centerX + radius * Math.cos(angle) - item.offsetWidth/2;
-      const y = centerY + radius * Math.sin(angle) - item.offsetHeight/2;
-      item.style.transform = `translate(${x}px, ${y}px)`;
-    });
-  }
-  requestAnimationFrame(rotateLogos);
-}
-
-// Défilement horizontal (mobile)
-function scrollLogos() {
-  if (isMobile) {
-    scrollPosition += scrollSpeed;
-    if (scrollPosition >= clientsCarousel.scrollWidth / 2) {
-      scrollPosition = 0;
-    }
-    clientsCarousel.scrollLeft = scrollPosition;
-  }
-  requestAnimationFrame(scrollLogos);
-}
-
-// Gestion du responsive
-function handleResize() {
-  const wasMobile = isMobile;
-  isMobile = window.innerWidth <= 768;
-  
-  if (wasMobile !== isMobile) {
-    setupLogos();
-    if (isMobile) {
-      scrollPosition = 0;
-      clientsCarousel.scrollLeft = 0;
-    }
-  }
-}
+ 
 
 // Événements
 window.addEventListener('resize', handleResize);
