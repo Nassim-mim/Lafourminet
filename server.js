@@ -29,7 +29,7 @@ const transporter = nodemailer.createTransport({
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'frontend', 'landing-page.html'));
 });
-
+ 
 // Email endpoint
 app.post('/api/send-email', async (req, res) => {
   try {
