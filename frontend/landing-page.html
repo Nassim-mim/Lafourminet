@@ -1111,66 +1111,139 @@
             }
         } 
         .our_clients {
-        padding: 40px 20px;
-        text-align: center;
-        background: #f9f9f9;
-    }
-    
-    .our_clients h2 {
-        margin-bottom: 30px;
-        font-size: 2rem;
-        color: #333;
-    }
-    
-    .clients-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-    
-    .client-card {
-        width: 150px;
-        height: 150px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: white;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        padding: 15px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .client-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    }
-    
-    .client-logo {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;
-    }
-    
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-        .client-card {
-            width: 120px;
-            height: 120px;
+            padding: 40px 20px;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-    }
-    
-    @media (max-width: 480px) {
-        .client-card {
-            width: 100px;
-            height: 100px;
+        
+        .our_clients h2 {
+            margin-bottom: 30px;
+            font-size: 2rem;
+            color: #333;
         }
-    }
-    
-
+        
+        .clients-container {
+            position: relative;
+            height: 350px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .client-card {
+            width: 180px;
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            background: transparent;
+            border-radius: 0;
+            box-shadow: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transition:
+                transform 0.7s cubic-bezier(.25,.8,.25,1),
+                box-shadow 0.7s cubic-bezier(.25,.8,.25,1),
+                opacity 0.7s,
+                z-index 0.7s;
+            opacity: 0.6;
+            z-index: 1;
+            pointer-events: none;
+            filter: blur(2px);
+        }
+        
+        .client-logo {
+            width: 140px;
+            height: 140px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+        
+        .client-card.active {
+            opacity: 1;
+            z-index: 10;
+            transform: translate(-50%, -50%) scale(1.3);
+            pointer-events: auto;
+            filter: none;
+            background: transparent;
+            border-radius: 0;
+        }
+        
+        .client-card.visible {
+            filter: blur(0.8px);
+            opacity: 0.8;
+        }
+        
+        .client-name {
+            display: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1E6B47;
+            margin-bottom: 12px;
+            text-align: center;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .client-card.active .client-name {
+            display: block;
+        }
+        
+        .client-card.onu-client.active .client-name {
+            color: #0075B4;
+        }
+        
+        .client-card[data-name="Centre national de toxicologie"] .client-name {
+            color: #000000;
+        }
+        
+        .client-card[data-name="China State Engineering Corporate"] .client-name {
+            color: #0075B4;
+        }
+        
+        @media (max-width: 992px) {
+            .clients-container {
+                max-width: 800px;
+                height: 600px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .clients-container {
+                max-width: 500px;
+                height: 500px;
+            }
+            .client-card {
+                width: 120px;
+                height: 120px;
+            }
+            .client-logo {
+                width: 90px;
+                height: 90px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .clients-container {
+                max-width: 350px;
+                height: 400px;
+            }
+            .client-card {
+                width: 100px;
+                height: 100px;
+            }
+            .client-logo {
+                width: 70px;
+                height: 70px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1385,61 +1458,42 @@
          
         <div class="clients-container">
             <!-- Client Logo Cards - repeat this div for each client -->
-            <div class="client-card">
+            <div class="client-card" data-name="Aslan">
                 <img src="image/aslan-re.png" alt="Client 1" class="client-logo">
+               
             </div>
             <!-- <div class="client-card">
                 <img src="image/BP__1_-removebg-preview.png" alt="Client 2" class="client-logo">
             </div> -->
-            <div class="client-card">
+            <div class="client-card" data-name="British Petroleum Company">
                 <img src="image/bp-re.png" alt="Client 3" class="client-logo">
+                <div class="client-name"></div>
             </div>
-            <div class="client-card">
+            <div class="client-card" data-name="China State Engineering Corporate">
                 <img src="image/cscec.png" alt="Client 4" class="client-logo">
+                <div class="client-name"></div>
             </div>
-            <div class="client-card">
-                <img src="image/LNCPP1.png" alt="Client 5" class="client-logo">
+            <div class="client-card"><img src="image/LNCPP1.png" alt="Client 5" class="client-logo" data-name="LNCPP"></div>
+            <div class="client-card"><img src="image/mdn.png" alt="Client 6" class="client-logo" data-name=""></div>
+            <div class="client-card"><img src="image/osco-r.png" alt="Client 7" class="client-logo" data-name="OSCO"></div>
+            <div class="client-card"><img src="image/pasteur.png" alt="Client 8" class="client-logo" data-name=""></div>
+            <div class="client-card onu-client" data-name="ONU">
+                <img src="image/unesku.png" alt="ONU" class="client-logo">
+                <div class="client-name"></div>
             </div>
-            <div class="client-card">
-                <img src="image/mdn.png" alt="Client 6" class="client-logo">
-            </div>
-            <div class="client-card">
-                <img src="image/osco-r.png" alt="Client 7" class="client-logo">
-            </div>
-            <div class="client-card">
-                <img src="image/pasteur.png" alt="Client 8" class="client-logo">
-            </div>
-            <div class="client-card">
-                <img src="image/unesku.png" alt="Client 9" class="client-logo">
-            </div>
-            <div class="client-card">
-                <img src="image/zF.png" alt="Client 10" class="client-logo">
-            </div> 
-            <div class="client-card">
-                <img src="image/image-removebg-preview (9).png" alt="Client 11" class="client-logo">
-            
-            
-            </div>
-            <div class="client-card">
-                <img src="image/image-removebg-preview (7).png" alt="Client 12" class="client-logo">
-            </div> 
-            <div class="client-card">
+            <div class="client-card"><img src="image/zF.png" alt="Client 10" class="client-logo" data-name="ZF"></div> 
+            <div class="client-card"><img src="image/image-removebg-preview (9).png" alt="Client 11" class="client-logo" data-name="Client 11"></div>
+            <div class="client-card"><img src="image/image-removebg-preview (7).png" alt="Client 12" class="client-logo" data-name="Client 12"></div> 
+            <div class="client-card" data-name="Centre national de toxicologie">
                 <img src="image/image-removebg-preview (6).png" alt="Client 12" class="client-logo">
+                <div class="client-name"></div>
             </div>
 
-            <div class="client-card">
-                <img src="image/image-removebg-preview (3).png" alt="Client 12" class="client-logo">
-            </div>
-            <div class="client-card">
-                <img src="image/image-removebg-preview (4).png" alt="Client 13" class="client-logo">
-            </div> 
-            <div class="client-card">
-                <img src="image/image-removebg-preview (5).png" alt="Client 14" class="client-logo">
-            </div>
+            <div class="client-card"><img src="image/image-removebg-preview (3).png" alt="Client 12" class="client-logo" data-name="Client 13"></div>
+            <div class="client-card"><img src="image/image-removebg-preview (4).png" alt="Client 13" class="client-logo" data-name="Client 14"></div> 
+            <div class="client-card"><img src="image/image-removebg-preview (5).png" alt="Client 14" class="client-logo" data-name="Client 15"></div>
              
-            <div class="client-card">
-                <img src="image/image-removebg-preview (2).png" alt="Client 14" class="client-logo">
-            </div>
+            <div class="client-card"><img src="image/image-removebg-preview (2).png" alt="Client 14" class="client-logo" data-name="Client 16"></div>
 
             
         </div>
@@ -1676,55 +1730,6 @@
             }
         });
         
-      const clientsCarousel = document.getElementById('clients-carousel');
-const centerLogo = document.querySelector('.center-logo');
-const decorations = document.querySelector('.decorations');
-
-const clientLogos = [
-  'image/aslan-re.png',
-  'image/image-removebg-preview (2).png',
-  'image/LNCPP1.png',
-  'image/image-removebg-preview (3).png',
-  'image/image-removebg-preview (4).png',
-  'image/image-removebg-preview (5).png',
-  'image/image-removebg-preview (6).png',
-  'image/osco-r.png',
-  'image/image-removebg-preview (7).png',
-  'image/bp-re.png',
-  'image/image-removebg-preview (9).png',
-  'image/cscec.png',
-  'image/zF.png',
-  'image/pasteur.png',
-  'image/unesku.png',
-  'image/mdn.png'
-];
-
-// Variables d'animation
-const radius = 250;
-const centerX = 300;
-const centerY = 300;
-const angleStep = (2 * Math.PI) / clientLogos.length;
-const logos = [];
-let scrollPosition = 0;
-let scrollSpeed = 1;
-let isMobile = window.innerWidth <= 768;
-let rotationAngle = 0;
- 
-
-// Événements
-window.addEventListener('resize', handleResize);
-clientsCarousel.addEventListener('mouseenter', () => {
-  if (isMobile) scrollSpeed = 0;
-});
-clientsCarousel.addEventListener('mouseleave', () => {
-  if (isMobile) scrollSpeed = 1;
-});
-
-// Initialisation
-setupLogos();
-rotateLogos();
-scrollLogos();
-        
         // Form submission
         const contactForm = document.getElementById('contactForm');
         contactForm.addEventListener('submit', async function(e) {
@@ -1782,6 +1787,148 @@ scrollLogos();
         
         window.addEventListener('scroll', animateOnScroll);
         window.addEventListener('load', animateOnScroll);
+
+        window.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.client-card');
+            const container = document.querySelector('.clients-container');
+            let current = 0;
+            let isDragging = false;
+            let startX = 0;
+            let deltaX = 0;
+
+            function updateClientsCarousel() {
+                const total = cards.length;
+                const isMobile = window.innerWidth <= 768;
+                const visibleCards = isMobile ? 3 : 7; // 7 en desktop, 3 en mobile
+                const spacing = isMobile ? 150 : 260;
+
+                cards.forEach((card, idx) => {
+                    card.classList.remove('active', 'visible');
+                    let pos = idx - current;
+
+                    if (pos < -Math.floor(visibleCards/2)) pos += total;
+                    if (pos > Math.floor(visibleCards/2)) pos -= total;
+
+                    if (Math.abs(pos) > Math.floor(visibleCards/2)) {
+                        card.style.display = 'none';
+                    } else {
+                        card.style.display = 'flex';
+                    }
+
+                    card.style.transform = `translate(-50%, -50%) translateX(${pos * spacing}px) scale(${idx === current ? 1.3 : 0.8})`;
+                    card.style.zIndex = (idx === current) ? 10 : 5 - Math.abs(pos);
+                    card.style.pointerEvents = (idx === current) ? 'auto' : 'none';
+
+                    if (idx === current) {
+                        card.classList.add('active');
+                        card.style.opacity = 1;
+                    } else if (Math.abs(pos) === 1) {
+                        card.classList.add('visible');
+                        card.style.opacity = 0.8;
+                    } else {
+                        card.style.opacity = 0.3;
+                    }
+
+                    const nameDiv = card.querySelector('.client-name');
+                    if (nameDiv) {
+                        if (idx === current) {
+                            nameDiv.textContent = card.getAttribute('data-name') || '';
+                        } else {
+                            nameDiv.textContent = '';
+                        }
+                    }
+                });
+            }
+
+            function nextClient() {
+                current = (current + 1) % cards.length;
+                updateClientsCarousel();
+            }
+            function prevClient() {
+                current = (current - 1 + cards.length) % cards.length;
+                updateClientsCarousel();
+            }
+
+            // Drag (desktop)
+            container.addEventListener('mousedown', function(e) {
+                isDragging = true;
+                startX = e.clientX;
+            });
+            document.addEventListener('mousemove', function(e) {
+                if (!isDragging) return;
+                deltaX = e.clientX - startX;
+            });
+            document.addEventListener('mouseup', function(e) {
+                if (!isDragging) return;
+                isDragging = false;
+                if (deltaX > 50) {
+                    prevClient();
+                } else if (deltaX < -50) {
+                    nextClient();
+                }
+                deltaX = 0;
+            });
+
+            // Swipe (mobile)
+            container.addEventListener('touchstart', function(e) {
+                isDragging = true;
+                startX = e.touches[0].clientX;
+            });
+            container.addEventListener('touchmove', function(e) {
+                if (!isDragging) return;
+                deltaX = e.touches[0].clientX - startX;
+            });
+            container.addEventListener('touchend', function(e) {
+                if (!isDragging) return;
+                isDragging = false;
+                if (deltaX > 50) {
+                    prevClient();
+                } else if (deltaX < -50) {
+                    nextClient();
+                }
+                deltaX = 0;
+            });
+
+            // Initial state
+            updateClientsCarousel();
+            let autoSlide = setInterval(nextClient, 3000);
+
+            // Pause auto-slide on drag/swipe
+            function pauseAutoSlide() {
+                clearInterval(autoSlide);
+            }
+            function resumeAutoSlide() {
+                clearInterval(autoSlide);
+                autoSlide = setInterval(nextClient, 3000);
+            }
+            container.addEventListener('mousedown', pauseAutoSlide);
+            container.addEventListener('touchstart', pauseAutoSlide);
+            document.addEventListener('mouseup', function(e) {
+                if (!isDragging) return;
+                isDragging = false;
+                if (deltaX > 50) {
+                    prevClient();
+                } else if (deltaX < -50) {
+                    nextClient();
+                }
+                deltaX = 0;
+                resumeAutoSlide(); // Reprendre l'auto-slide après drag
+            });
+            container.addEventListener('touchend', function(e) {
+                if (!isDragging) return;
+                isDragging = false;
+                if (deltaX > 50) {
+                    prevClient();
+                } else if (deltaX < -50) {
+                    nextClient();
+                }
+                deltaX = 0;
+                resumeAutoSlide(); // Reprendre l'auto-slide après swipe
+            });
+
+            // Mettre à jour lors du redimensionnement de la fenêtre
+            window.addEventListener('resize', updateClientsCarousel);
+        });
     </script>
 </body>
 </html>
