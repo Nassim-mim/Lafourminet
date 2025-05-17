@@ -1556,6 +1556,7 @@
             </div>
             
             <div class="contact-form">
+                  
                 <form id="contactForm">
                     <div class="form-group">
                         <label for="name">Nom complet</label>
@@ -1569,28 +1570,18 @@
                         <label for="phone">Téléphone</label>
                         <input type="tel" id="phone" class="form-control" required>
                     </div>
-                    <!-- <div class="form-group">
-                        <label for="service">Service intéressé</label>
-                        <select id="service" class="form-control" required>
-                            <option value="">Sélectionnez un service</option>
-                            <option value="nettoyage">Nettoyage et désinfection</option>
-                            <option value="espaces-verts">Espaces verts</option>
-                            <option value="renovation">Rénovation et peinture</option>
-                            <option value="eaux-usees">Traitement des eaux usées</option>
-                            <option value="dechets">Collecte des déchets</option>
-                            <option value="commerce">Commerce de détail</option>
-                        </select>
-                    </div> -->
+                     
                     <div class="form-group">
                         <label for="message">Message</label>
                         <textarea id="message" class="form-control" required></textarea>
                     </div>
                     <button type="submit" class="submit-btn">Envoyer la demande <i class="fas fa-paper-plane"></i></button>
                 </form>
+           
             </div>
         </div>
     </section>
-
+ 
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
@@ -1741,11 +1732,13 @@
             const formData = {
                 name: this.querySelector('input[type="text"]').value,
                 email: this.querySelector('input[type="email"]').value,
-                message: this.querySelector('textarea').value
+                message: this.querySelector('textarea').value,
+                telephone: this.querySelector('input[type="tel"]').value // Added telephone field
+                
             };
 
             try {
-                const response = await fetch('http://localhost:3000/api/send-email', {
+                const response = await fetch('/api/send-email', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

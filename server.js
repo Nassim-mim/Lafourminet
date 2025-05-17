@@ -15,15 +15,22 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'frontend')));
 // Serve static files from image directory
 app.use('/image', express.static(path.join(__dirname, 'frontend', 'image')));
-
 // Email transporter configuration
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  host: 'mail.lafourminet.com',
+  port: 465 , // SMTP port
+  secure: true, // STARTTLS
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS
-  }
+  },
+  tls: {
+    rejectUnauthorized: false
+  },
+  logger: true,
+  debug: true
 });
+
 
 // Serve the landing page
 app.get('/', (req, res) => {
@@ -33,7 +40,7 @@ app.get('/', (req, res) => {
 // Email endpoint
 app.post('/api/send-email', async (req, res) => {
   try {
-    const { name, email, message } = req.body;
+    const { name, email, message, telephone } = req.body;
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
@@ -41,12 +48,14 @@ app.post('/api/send-email', async (req, res) => {
       subject: `New Contact Form Submission from ${name}`,
       text: `
         Name: ${name}
-        Email: ${email}
+        Email: ${email} 
+        Telephone: ${telephone}
         Message: ${message}
       `
     };
 
     await transporter.sendMail(mailOptions);
+    console.log('Email sent successfully');
     res.status(200).json({ message: 'Email sent successfully' });
   } catch (error) {
     console.error('Error sending email:', error);
@@ -56,4 +65,4 @@ app.post('/api/send-email', async (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
-}); 
+});
